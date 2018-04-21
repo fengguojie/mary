@@ -37,7 +37,6 @@ public class UserJellardController extends AbstractBaseController{
 	 @SecurityAccessCheckable(resource = BaseCarSpaceRank.class)
 	 @RequestMapping("/list")
 	 public String list(HttpSession session, Model model) {
-		 //test git commit
 		 return "/baseInfo/userJellard_list";
 	 }
 		/**
