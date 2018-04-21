@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration>
+	<classPathEntry location="lib/mysql-connector-java-5.1.26.jar" />
+	<context id="streetlight">
+		<plugin
+			type="org.chinadovey.tools.mybatis.generator.MySQLPaginationPlugin2" />
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
+			connectionURL="jdbc:mysql://112.124.9.133/pp_parking?characterEncoding=UTF-8"
+			userId="power" password="power" />
+		<javaModelGenerator targetPackage="com.chinadovey.parking.webapps.pojo"
+			targetProject="src/main/java" />
+		<sqlMapGenerator targetPackage="com.chinadovey.parking.webapps.mappers.gen"
+			targetProject="src/main/resources" />
+		<javaClientGenerator targetPackage="com.chinadovey.parking.webapps.mappers.gen"
+			targetProject="src/main/java" type="XMLMAPPER" />
+
+<!-- 		<table tableName="parking_wechat_configure" domainObjectName="WechatConfigure" /> -->
+<!-- 		<table tableName="parking_park_rel_wechat" domainObjectName="ParkRelWechat" /> -->
+<!-- 		<table tableName="parking_service_provider" domainObjectName="ServiceProvider" /> -->
+<!-- 		<table tableName="parking_income_count_year" domainObjectName="IncomeCountYear"/> -->
+<!-- 		<table tableName="parking_income_count_month" domainObjectName="IncomeCountMonth"/> -->
+<!-- 		<table tableName="parking_income_count_day" domainObjectName="IncomeCountDay"/> -->
+<!-- 		<table tableName="parking_income_count_hour" domainObjectName="IncomeCountHour"/> -->
+<!-- 		<table tableName="parking_operator_car_in_out_count_year" domainObjectName="OperatorCarInOutCountYear"/> -->
+<!-- 		<table tableName="parking_operator_car_in_out_count_month" domainObjectName="OperatorCarInOutCountMonth"/> -->
+<!-- 		<table tableName="parking_operator_car_in_out_count_day" domainObjectName="OperatorCarInOutCountDay"/> -->
+<!-- 		<table tableName="parking_operator_car_in_out_count_hour" domainObjectName="OperatorCarInOutCountHour"/> -->
+<!-- 		<table tableName="parking_channel" domainObjectName="Channel"/> -->
+<!-- 		<table tableName="parking_car_in_out_record" domainObjectName="CarInOutRecord"/> -->
+<!-- 		<table tableName="parking_car_charge_record" domainObjectName="CarChargeRecord"/> -->
+		<!-- <table tableName="parking_order_refund" domainObjectName="OrderRefund"/> -->
+		<!-- <table tableName="parking_charge_rule" domainObjectName="ChargeRule" 
+			/> -->
+		<!-- <table tableName="parking_payment_order" domainObjectName="PaymentOrder"/> -->
+		<!-- <table tableName="parking_business_balance" domainObjectName="BusinessBalance"/> -->
+		<table tableName="parking_car_user_history_car_no" domainObjectName="CarUserHistoryCarNo"/>
+		<!-- <table tableName="parking_reserve" domainObjectName="Reserve" /> -->
+		<!-- <table tableName="parking_admin_apk_version" domainObjectName="AdminApkVersion" 
+			/> -->
+		<!-- <table tableName="parking_hotel_ruian" domainObjectName="Hotel" /> -->
+		<!-- <table tableName="parking_eat_record_ruian" domainObjectName="EatRecord" 
+			/> -->
+		<!-- <table tableName="parking_no_payment_record_ruian" domainObjectName="NoPaymentRecord" -->
+		<!-- /> -->
+
+	</context>
+</generatorConfiguration>

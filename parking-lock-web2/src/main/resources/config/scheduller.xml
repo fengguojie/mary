@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
+	default-autowire="byName">
+
+	
+     <!-- 网络状态监测，主要解决mina线程挂掉现象 -->
+	<!--   <bean id="networkStateDetail"
+		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="concurrent" value="false" />
+		<property name="targetObject" ref="networkStateScheduler" />
+		<property name="targetMethod" value="check" />
+	</bean>
+	<bean id="networdStateTrigger"
+		class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+		<property name="jobDetail" ref="networkStateDetail" />
+		<property name="cronExpression" value="0 1/3 * * * ?" />
+	</bean>  -->
+     <!-- 统计车锁离线 -->
+	  <bean id="carlockLogDetail"
+		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="concurrent" value="false" />
+		<property name="targetObject" ref="carlockLogScheduler" />
+		<property name="targetMethod" value="statisticCarlockLog" />
+	</bean>
+	<bean id="carlockLogTrigger"
+		class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+		<property name="jobDetail" ref="carlockLogDetail" />
+		<property name="cronExpression" value="0 0/1 * * * ?" /><!-- 一分钟一次 -->
+	</bean> 
+	
+	<bean id="testDetail"
+		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="concurrent" value="false" />
+		<property name="targetObject" ref="testScheduler" />
+		<property name="targetMethod" value="test" />
+	</bean>
+	<bean id="testTrigger"
+		class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+		<property name="jobDetail" ref="testDetail" />
+		<property name="cronExpression" value="0 0/1 * * * ?" /><!-- 一分钟一次 -->
+	</bean> 
+	
+	<!-- 调度工厂 -->
+	<bean autowire="no" id="startQuertz" lazy-init="false"
+		class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+		<property name="triggers">
+			<list>
+				<!--  <ref bean="networdStateTrigger" /> 
+				<ref bean="carlockLogTrigger" />
+				 -->
+				 <ref bean="testTrigger" />
+			</list>
+		</property>
+	</bean>
+</beans>
